@@ -1,10 +1,10 @@
 # EMR Setup and SSH
 ## Steps:
-1. Search for emr in the aws search console.\
+1. Search for emr in the aws search console.
 
 ![image](https://user-images.githubusercontent.com/63589909/85552987-2a7a2980-b641-11ea-81d0-3688d1ba61a3.png)
 
-2. Click on create cluster.\
+2. Click on create cluster.
 
 ![image](https://user-images.githubusercontent.com/63589909/85553142-4ed60600-b641-11ea-9595-0a0623d296c5.png)
 
