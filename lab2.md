@@ -1,5 +1,9 @@
-# Lab: Importing RDMS Data into HDFS
-## Steps
+# Lab 2: Using Sqoop commands  
+## Importing RDMS Data into HDFS
+<details>
+<summary>Steps</summary>
+<br>
+
 1.	[Steps to create and RDS and connect]( https://github.com/dhagesharayu/Cloud_Computing/blob/Services/RDS.md)
 
 2.	Create table and import data in RDMS it as shown.
@@ -33,6 +37,8 @@
 ![image](https://user-images.githubusercontent.com/63589909/86051509-269c3c00-ba73-11ea-8e96-81de2312e56f.png)
 
 ![image](https://user-images.githubusercontent.com/63589909/86051516-2ac85980-ba73-11ea-94c6-61b39c18ec69.png)
+
+* [Steps for SSH to EMR](https://github.com/dhagesharayu/Bigdatalab/blob/master/EMRSetup%20with%20Hadoop.md)
 
 4. Import the Table into HDFS
 * Enter the following Sqoop command (all on a single line), which imports the salaries table in the test database into HDFS:
@@ -88,21 +94,59 @@ sqoop import --connect jdbc:mysql://sandbox/test?user=root Endpoint-of-database/
 
 ![image](https://user-images.githubusercontent.com/63589909/86051939-dd002100-ba73-11ea-9a0f-949b30f88f73.png)
 
-![image](https://user-images.githubusercontent.com/63589909/86052071-05881b00-ba74-11ea-895b-658585d59272.png)
+7. Importing from a Query
+
+* Write a Sqoop import command that imports the rows from salaries in MySQL whose salary column is greater than 90,000.00.
+* Use gender as the --split-by value, specify only two mappers, and import the data into the salaries7 folder in HDFS.
+* The Sqoop command will look similar to the ones you have been using throughout this lab, except you will use --query instead of --table. Recall that when you use
+a --query command you must also define a --split-by column, or define -m to be 1. Also, do not forget to add $CONDITIONS to the WHERE clause of your query, as
+demonstrated earlier in this unit.
 
 ![image](https://user-images.githubusercontent.com/63589909/86128252-c6eb7280-bafe-11ea-95c2-51bb8670fed2.png)
 
+* On executing this command we get an collation error as shown below:
+
 ![image](https://user-images.githubusercontent.com/63589909/86128306-d8cd1580-bafe-11ea-8ec8-299a4a1ba174.png)
 
+* This can be soved by making collation changes to the table in the database as shown below:
+
 ![image](https://user-images.githubusercontent.com/63589909/86128343-e1255080-bafe-11ea-9d55-42d253d06904.png)
+
+* Now the same command gets executed without any error
 
 ![image](https://user-images.githubusercontent.com/63589909/86128672-4f6a1300-baff-11ea-8112-a8f98e39546e.png)
 
 ![image](https://user-images.githubusercontent.com/63589909/86128687-55f88a80-baff-11ea-9774-af802065723f.png)
 
+* To verify the result, view the contents of the files in salaries7. You should have only two output files.
+```hdfs dfs -ls salaries7```
+* View the contents of part‐m‐00000 and part‐m‐00001.
+```
+hdfs dfs -cat salaries7/part-m-00000
+hdfs dfs -cat salaries7/part-m-00001
+```
+* Notice that one file contains females, and the other file contains males. Because we used gender as the split‐by column, so all records with the same
+gender are sent to the same mapper.
+* Verify that the output files contain only records whose salary is greater than 90,000.00.
+
 ![image](https://user-images.githubusercontent.com/63589909/86128709-5bee6b80-baff-11ea-989e-f2248bd6f230.png)
 
+</details>
+
+## Exporting HDFS Data to an RDBMS
+<details>
+<summary>Steps</summary>
+<br>
+  
+1. [Steps to create and RDS and connect]( https://github.com/dhagesharayu/Cloud_Computing/blob/Services/RDS.md)
+
+2. Create the table salaries2 in database as shown
+
 ![image](https://user-images.githubusercontent.com/63589909/86128830-84766580-baff-11ea-95cc-0939d6b0008c.png)
+
+* Steps to create cluster with scoop and perform SSH shown in Importing RDMS Data into HDFS Steps.
+
+3. Put the Data into HDFS
 
 ![image](https://user-images.githubusercontent.com/63589909/86128870-8b9d7380-baff-11ea-88fb-5bc7076ee0ce.png)
 
@@ -114,8 +158,16 @@ sqoop import --connect jdbc:mysql://sandbox/test?user=root Endpoint-of-database/
 
 ![image](https://user-images.githubusercontent.com/63589909/86128968-a243ca80-baff-11ea-8cc4-40238282e21b.png)
 
+4. Export the Data
+* Run a Sqoop command that exports the salarydata folder in HDFS into the salaries2 table in MySQL. At the end of the MapReduce output, you should see a
+log event stating that 10,000 records were exported.
+
 ![image](https://user-images.githubusercontent.com/63589909/86128378-ec787c00-bafe-11ea-8b51-464e0259b797.png)
 
 ![image](https://user-images.githubusercontent.com/63589909/86128406-f306f380-bafe-11ea-9807-d7d3f429edc0.png)
 
+5. Verify it worked by viewing the table’s contents from the mysql.
+
 ![image](https://user-images.githubusercontent.com/63589909/86129014-b2f44080-baff-11ea-812e-61880777a562.png)
+
+</details>
