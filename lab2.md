@@ -34,37 +34,59 @@
 
 ![image](https://user-images.githubusercontent.com/63589909/86051516-2ac85980-ba73-11ea-94c6-61b39c18ec69.png)
 
-![image](https://user-images.githubusercontent.com/63589909/86051541-3451c180-ba73-11ea-9f2f-0e8c8159b8e6.png)
+4. Import the Table into HDFS
+* Enter the following Sqoop command (all on a single line), which imports the salaries table in the test database into HDFS:
+
+``` sqoop import --connect jdbc:mysql://Endpoint-of-database/databasename --username  <> --password <> -- table salaries ```
+
+* A MapReduce job should start executing, and it may take a couple of minutes for the job to complete.
 
 ![image](https://user-images.githubusercontent.com/63589909/86051779-94e0fe80-ba73-11ea-9eaf-97312c88ff9b.png)
 
 ![image](https://user-images.githubusercontent.com/63589909/86051792-9a3e4900-ba73-11ea-91d2-efd2d12cf911.png)
 
+5. Verify the Import
+* View the contents of your HDFS folder: ```hdfs dfs -ls```
+
+* You should see a new folder named salaries. View its contents: ```hdfs dfs -ls salaries```
+
 ![image](https://user-images.githubusercontent.com/63589909/86051801-a0342a00-ba73-11ea-8fc3-89a2e7d5796b.png)
+
+* Notice there are four new files in the salaries folder named part‐m‐0000x. Why are there four of these files?
+* Answer: The MapReduce job that executed the Sqoop command used four mappers, so there are four output files (one from each mapper).
+* Use the cat command to view the contents of the files. For example: ```hdfs dfs -cat salaries/part-m-00000```
 
 ![image](https://user-images.githubusercontent.com/63589909/86051811-a4604780-ba73-11ea-8943-a8f1d5190956.png)
 
+* Notice the contents of these files are the rows from the salaries table in MySQL. You have now successfully imported data from a MySQL database into HDFS. Also notice that you imported the entire table with all of its columns. Next, you will
+import only specific columns of a table.
+
 ![image](https://user-images.githubusercontent.com/63589909/86051824-a9bd9200-ba73-11ea-9e2e-d8f315088801.png)
+
+6 Specify Columns to Import
+
+* Using the ‐‐columns argument, write a Sqoop command that imports the salary and age columns (in that order) of the salaries table into a directory in HDFS
+named salaries2. In addition, set the ‐m argument to 1 so that the result is a single file.
+* Solution: The command you enter in the command line will look like this in the terminal window:
+
+``` 
+sqoop import --connect jdbc:mysql://sandbox/test?user=root Endpoint-of-database/databasename --username  <> --password<> --table salaries
+--columns salary,age -m 1 --target-dir salaries2
+```
 
 ![image](https://user-images.githubusercontent.com/63589909/86051844-b4782700-ba73-11ea-83e1-d251840cf03c.png)
 
 ![image](https://user-images.githubusercontent.com/63589909/86051851-b80bae00-ba73-11ea-9c4a-38de1314d5b8.png)
 
+* To make it easier to read, following is the same command as above, however we have broken it down into smaller chunks separated by a "\" at the end of the break point in each line. When you see this formatting in the lab, you should type it out as it appears above, and do not enter the \ characters unless specifically instructed to do so.
+
+* After the import, verify you only have one part‐m file in salaries2.
+
 ![image](https://user-images.githubusercontent.com/63589909/86051866-bc37cb80-ba73-11ea-87b2-8067fd641535.png)
 
+* Verify that the contents of part‐m‐00000 are only the two columns you specified:
+
 ![image](https://user-images.githubusercontent.com/63589909/86051939-dd002100-ba73-11ea-9a0f-949b30f88f73.png)
-
-![image](https://user-images.githubusercontent.com/63589909/86051952-e12c3e80-ba73-11ea-89f6-7f1111923146.png)
-
-![image](https://user-images.githubusercontent.com/63589909/86051964-e4bfc580-ba73-11ea-806d-7ad8d7b98d54.png)
-
-![image](https://user-images.githubusercontent.com/63589909/86052012-f43f0e80-ba73-11ea-9a71-e60ea6eb7479.png)
-
-![image](https://user-images.githubusercontent.com/63589909/86052023-f903c280-ba73-11ea-9a85-995d586f1203.png)
-
-![image](https://user-images.githubusercontent.com/63589909/86052036-fd2fe000-ba73-11ea-9627-afa9cbc5488e.png)
-
-![image](https://user-images.githubusercontent.com/63589909/86052058-015bfd80-ba74-11ea-9df1-a25bb97bbd87.png)
 
 ![image](https://user-images.githubusercontent.com/63589909/86052071-05881b00-ba74-11ea-895b-658585d59272.png)
 
