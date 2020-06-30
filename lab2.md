@@ -1,6 +1,8 @@
-#
-1.	[Steps to create and RDS and connect].( https://github.com/dhagesharayu/Cloud_Computing/blob/Services/RDS.md)
-2.	Import table in it
+# Lab: Importing RDMS Data into HDFS
+## Steps
+1.	[Steps to create and RDS and connect]( https://github.com/dhagesharayu/Cloud_Computing/blob/Services/RDS.md)
+
+2.	Create table and import data in RDMS it as shown.
 
 ![image](https://user-images.githubusercontent.com/63589909/86019452-3fd9c400-ba44-11ea-8019-43427f584f14.png)
 
@@ -17,6 +19,8 @@
 ![image](https://user-images.githubusercontent.com/63589909/86051326-dc1abf80-ba72-11ea-876b-329824e3f3b4.png)
 
 ![image](https://user-images.githubusercontent.com/63589909/86051633-59463480-ba73-11ea-856b-f0cb55949371.png)
+
+3. Steps to create hadoop cluster with sqoop: 
 
 ![image](https://user-images.githubusercontent.com/63589909/86051461-11bfa880-ba73-11ea-9c4d-34d59497c3f6.png)
 
@@ -63,3 +67,33 @@
 ![image](https://user-images.githubusercontent.com/63589909/86052058-015bfd80-ba74-11ea-9df1-a25bb97bbd87.png)
 
 ![image](https://user-images.githubusercontent.com/63589909/86052071-05881b00-ba74-11ea-895b-658585d59272.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86128252-c6eb7280-bafe-11ea-95c2-51bb8670fed2.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86128306-d8cd1580-bafe-11ea-8ec8-299a4a1ba174.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86128343-e1255080-bafe-11ea-9d55-42d253d06904.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86128672-4f6a1300-baff-11ea-8112-a8f98e39546e.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86128687-55f88a80-baff-11ea-9774-af802065723f.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86128709-5bee6b80-baff-11ea-989e-f2248bd6f230.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86128830-84766580-baff-11ea-95cc-0939d6b0008c.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86128870-8b9d7380-baff-11ea-88fb-5bc7076ee0ce.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86128899-92c48180-baff-11ea-9ed0-9aa182d479ba.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86128935-99eb8f80-baff-11ea-870e-07f28c565946.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86128955-9e17ad00-baff-11ea-90d9-3fca58964ac6.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86128968-a243ca80-baff-11ea-8cc4-40238282e21b.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86128378-ec787c00-bafe-11ea-8b51-464e0259b797.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86128406-f306f380-bafe-11ea-9807-d7d3f429edc0.png)
+
+![image](https://user-images.githubusercontent.com/63589909/86129014-b2f44080-baff-11ea-812e-61880777a562.png)
