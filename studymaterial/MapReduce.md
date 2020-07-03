@@ -75,3 +75,6 @@
 * It takes the key-value pair from the reducer and writes it to the file by recordwriter. 
 * By default, it separates the key and value by a tab and each record by a newline character. 
 * We can customize it to provide richer output format. But none the less final data gets written to HDFS.
+
+## [Details](https://data-flair.training/blogs/hadoop-mapreduce-tutorial/)
+## [Data Flowin MapReduce](https://data-flair.training/blogs/how-hadoop-mapreduce-works/)
