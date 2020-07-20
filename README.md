@@ -1,7 +1,5 @@
 # Bigdata 
-* It is a term derived from computational science. It is used to desribe a scenario where the volume, velocity, variety (other V) of the data types overwhelm th eexisting tools to store and process it.
-
-# [Theory Notes](https://github.com/dhagesharayu/Bigdatalab/tree/study)
+* It is a term derived from computational science. It is used to desribe a scenario where the volume, velocity, variety (other V) of the data types overwhelm th existing tools to store and process it.
 
 # Labs
 
