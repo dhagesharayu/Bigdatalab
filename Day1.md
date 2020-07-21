@@ -109,7 +109,7 @@ hdfs dfs -get test/data.txt /tmp/
 cd /tmp
 ls data*
 ```
- ![image](https://user-images.githubusercontent.com/63589909/85548396-868e7f00-b63c-11ea-9d5c-6246f58787a4.png)
+![image](https://user-images.githubusercontent.com/63589909/85548396-868e7f00-b63c-11ea-9d5c-6246f58787a4.png)\
 9. The getmerge Command 
 * Put the file /labs/labs/demos/small_blocks.txt into the test folder in 
 HDFS. You should now have two files in test: data.txt and small_blocks.txt.  
@@ -132,3 +132,9 @@ blocksize of 1,048,576 bytes.
 * How many blocks are there for this file? 
 * Answer: The file should be broken down into two blocks. 
 ![image](https://user-images.githubusercontent.com/63589909/85547799-e0db1000-b63b-11ea-957a-581bc76662ed.png)
+
+11. Replitaion Factor
+
+![image](https://user-images.githubusercontent.com/63589909/88027661-36301180-cb55-11ea-86db-87bf17849211.png)
+
+![image](https://user-images.githubusercontent.com/63589909/88027720-4cd66880-cb55-11ea-9d6d-ddc3cfefdc90.png)
