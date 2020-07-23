@@ -101,6 +101,12 @@ sqoop import --connect jdbc:mysql://Endpoint-of-database/databasename --username
 
 ![image](https://user-images.githubusercontent.com/63589909/88276190-41717180-ccfc-11ea-91f0-e2f40021f0b4.png)
 
+![image](https://user-images.githubusercontent.com/63589909/88286316-2dcf0680-cd0e-11ea-9dbd-f3b5f26661ee.png)
+
+![image](https://user-images.githubusercontent.com/63589909/88286422-59ea8780-cd0e-11ea-892d-ecc8c1dd01ac.png)
+
+![image](https://user-images.githubusercontent.com/63589909/88286519-81415480-cd0e-11ea-8beb-f67caa61dbf5.png)
+
 7. Importing from a Query
 
 * Write a Sqoop import command that imports the rows from salaries in MySQL whose salary column is greater than 90,000.00.
@@ -127,6 +133,12 @@ hdfs dfs -cat s3a://bucketname/directory_name/part-m-00001
 
 * Notice that one file contains females, and the other file contains males. Because we used gender as the split‐by column, so all records with the same
 gender are sent to the same mapper and the output files contain only records whose salary is greater than 90,000.00.
+
+* sqoop eval
+
+![image](https://user-images.githubusercontent.com/63589909/88286645-b188f300-cd0e-11ea-8ac9-bcfad8e86b43.png)
+
+![image](https://user-images.githubusercontent.com/63589909/88286739-d8472980-cd0e-11ea-8673-4c95fe7c9651.png)
 
 </details>
 
