@@ -12,10 +12,13 @@ and DataFu should have been installed via " ".
 
 * Change directories to the labs/Lab6.5 folder.
 
+![image](https://user-images.githubusercontent.com/63589909/88456977-5edf4080-cea0-11ea-8726-f4ec83bc65c4.png)
+
 * View the contents of the stocks.csv file, which contains the historical prices for
 New York Stock Exchange stocks that begin with the letter “Y”:
 ``tail stocks.csv```
 
+![image](https://user-images.githubusercontent.com/63589909/88456985-728aa700-cea0-11ea-9d8a-1392d423670c.png)
 
 * The first column is always “NYSE.” 
 * The second column is the stock’s symbol. 
@@ -26,7 +29,11 @@ stocks.csv file in your HDFS home directory from exercising the block storage
 demonstration, please delete the existing file first as the contents are different):
 ```hdfs dfs -put stocks.csv```
 
+![image](https://user-images.githubusercontent.com/63589909/88456992-859d7700-cea0-11ea-95a8-6e8b0e841d4d.png)
+
 2. Define the Quantile Function
+
+![image](https://user-images.githubusercontent.com/63589909/88457029-cf865d00-cea0-11ea-9132-b0029dda540f.png)
 
 * Using gedit, create a new text file in the labs/Lab6.5 lab folder
 named quantile.pig.
@@ -39,7 +46,8 @@ prior lab.
 * Define the datafu.pig.stats.Quantile function as a quantile, and pass in the
 values for computing the quartiles of a set of numbers:
 ```
-define Quantile datafu.pig.stats.Quantile('0.0','0.25','0.50','0.75','1.0');```
+define Quantile datafu.pig.stats.Quantile('0.0','0.25','0.50','0.75','1.0');
+```
 
 3. Load the Stocks
 
@@ -91,6 +99,8 @@ unique stock symbol in the stocks.csv file.
 
 * Add a DUMP statement that outputs the quantiles relation: ```DUMP quantiles;```
 
+![image](https://user-images.githubusercontent.com/63589909/88457038-de6d0f80-cea0-11ea-87ea-eac341cad53f.png)
+
 7. Run the Script
 
 * Save your changes to quantile.pig.
@@ -99,6 +109,8 @@ unique stock symbol in the stocks.csv file.
 
 * There is stock information in the input data, so the output will be the quantiles
 of the high price of these five stocks:
+
+![image](https://user-images.githubusercontent.com/63589909/88457056-00ff2880-cea1-11ea-9edf-636783a2c653.png)
 
 8. Compute the Median
 * Now that you have a working Pig script for computing the quantiles of the high
@@ -119,11 +131,15 @@ Median(sorted.highprice) AS median;
 
 * Change the DUMP command to display medians:```DUMP medians;```
 
+![image](https://user-images.githubusercontent.com/63589909/88457076-1ecc8d80-cea1-11ea-9c77-6e3104a4d703.png)
+
 * Save the modified file as median.pig
 
 * Run the modified script and view the results:```pig median.pig```
 
 * The output will be the median values for the same five stocks:
+
+![image](https://user-images.githubusercontent.com/63589909/88457083-3146c700-cea1-11ea-9773-88ab2678fb0c.png)
 
 Result
 You have used the DataFu library to compute the quantiles of a collection of numbers using Pig.
