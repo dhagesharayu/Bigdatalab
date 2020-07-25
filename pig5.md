@@ -11,11 +11,15 @@ about which pages a website visitor visits -- and in what order. The path the vi
 ## Lab Steps
 1. View the Clickstream Data
 
-* install DataFu:
+* install DataFu and piggybank:
+
+![image](https://user-images.githubusercontent.com/63589909/88456649-d27f4e80-ce9c-11ea-90a7-b8a9343f527e.png)
 
 * change directories to labs/Lab6.4.
 
 * View the contents of clicks.csv:```more clicks.csv```
+
+![image](https://user-images.githubusercontent.com/63589909/88456659-f3e03a80-ce9c-11ea-9b6d-c05f376cfe86.png)
 
 * The first column is the user’s ID, the second column is the time of the click stored as a long, and
 the third column is the URL visited. 
@@ -23,11 +27,16 @@ the third column is the URL visited.
 
 * Put the file in HDFS:```hdfs dfs -put clicks.csv```
 
+![image](https://user-images.githubusercontent.com/63589909/88456677-25590600-ce9d-11ea-8b30-58bf98fa0d73.png)
+
 2. Define the Sessionized UDF
 
 * Using the  vi editor, open the file labs/Lab6.4/sessions.pig.
 
+![image](https://user-images.githubusercontent.com/63589909/88456734-c8118480-ce9d-11ea-8f71-4a9e0cda310a.png)
+
 * Notice two JAR files are registered: datafu.jar and piggybank.jar. 
+
 * The datafu
 JAR contains the Sessionize function that you are going to use, and the
 piggybank.jar contains a time‐utility function named UnixToISO, which is
@@ -68,12 +77,17 @@ AS (isotime, time, id, sessionid);
 
 * Save your changes to sessions.pig.
 
+![image](https://user-images.githubusercontent.com/63589909/88456806-73223e00-ce9e-11ea-8f49-354fcb7f1009.png)
+
 4. Run the Script
 
 * Let’s verify that the Sessionized function is working by running the script:```pig sessions.pig```
 
+![image](https://user-images.githubusercontent.com/63589909/88456755-07d86c00-ce9e-11ea-8c70-4ebb394e1a13.png)
+
 * Verify that the tail of the output looks similar to the following:
 
+![image](https://user-images.githubusercontent.com/63589909/88456775-29395800-ce9e-11ea-8a8a-8f4eaa25de9a.png)
 
 5. Compute the Session Length
 
@@ -97,9 +111,12 @@ as session_length;
 ```
 * Dump the session_times relation:```DUMP session_times;```
 
+![image](https://user-images.githubusercontent.com/63589909/88456815-a1078280-ce9e-11ea-9481-e49f5810129b.png)
+
 * Save your changes to sessions.pig and run the script. The output should look
 like the following:
 
+![image](https://user-images.githubusercontent.com/63589909/88456867-0f4c4500-ce9f-11ea-8909-4688a8c54e8e.png)
 
 * How long was the longest session?
 * Answer: The longest session was 86.69525 minutes.
@@ -119,11 +136,14 @@ GENERATE AVG(session_times.session_length);
 ```
 * Dump the sessiontimes_avg relation:```DUMP sessiontimes_avg;```
 
+![image](https://user-images.githubusercontent.com/63589909/88456890-56d2d100-ce9f-11ea-9d4c-b81e39beb7e1.png)
+
 * Save your changes to sessions.pig and run the script again.
 
 * Verify the output, which should be a single value representing the average session
 time:
 
+![image](https://user-images.githubusercontent.com/63589909/88456902-88e43300-ce9f-11ea-8c15-8fdf74b8846d.png)
 
 7. Compute the Median Session Length
 
@@ -144,8 +164,11 @@ Median(ordered.session_length) AS median_session;
 };
 ```
 
+![image](https://user-images.githubusercontent.com/63589909/88456916-b7620e00-ce9f-11ea-9ed4-7a94f682ab7a.png)
+
 * Verify that you got the following value for the median session length:
 
+![image](https://user-images.githubusercontent.com/63589909/88456929-d8c2fa00-ce9f-11ea-9f41-85a0f43dfbfb.png)
 
 * Result
 You have taken clickstream data and sessionized it using Pig to determine statistical information
