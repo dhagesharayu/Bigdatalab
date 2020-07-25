@@ -1,7 +1,3 @@
-pig 5
-On a Web site, clickstream analysis (also called clickstream analytics) is the process of collecting, analyzing and reporting aggregate data about which pages a website 
-visitor visits -- and in what order. 
-The path the visitor takes though a website is called the clickstream.
 # Lab: Splitting a Dataset
 * About this Lab
 * Objective: Research the White House visitor data and look for members of Congress.
@@ -14,10 +10,15 @@ The path the visitor takes though a website is called the clickstream.
 
 1. Explore the Comments Field
 
+![image](https://user-images.githubusercontent.com/63589909/88452711-92a96e80-ce7e-11ea-8808-f6e9b1f313a0.png)
+
 * In this step, you will explore the comments field of the White House visitor data.
 
-* From the Pig Grunt shell, start by loading visits.txt:
-```pig
+* From the Pig Grunt shell, start by loading visits.txt:```pig```
+
+![image](https://user-images.githubusercontent.com/63589909/88452720-a81e9880-ce7e-11ea-851b-aabab0cd96ef.png)
+
+```
 grunt> cd whitehouse
 grunt> visits = LOAD 'visits.txt' USING PigStorage(',');
 ```
@@ -36,6 +37,8 @@ grunt> describe comments;
 comments: {comment: bytearray}
 ```
 
+
+
 2. Test the Relation
 
 * A common Pig task is to test a relation to make sure it is consistent with what you are intending it to be. 
@@ -45,6 +48,14 @@ comments: {comment: bytearray}
 
 * Now DUMP the comments_sample relation. The output should be non‐null comments about visitors to the White House, similar to:
 ```grunt> DUMP comments_sample;```
+
+![image](https://user-images.githubusercontent.com/63589909/88452738-cf756580-ce7e-11ea-85cc-c84310beb747.png)
+
+![image](https://user-images.githubusercontent.com/63589909/88452777-18c5b500-ce7f-11ea-835a-382e18b439e0.png)
+
+![image](https://user-images.githubusercontent.com/63589909/88452981-b372c380-ce80-11ea-8f1f-ee837beaae63.png)
+
+![image](https://user-images.githubusercontent.com/63589909/88452998-dac99080-ce80-11ea-9aab-1fa4d5881765.png)
 
 3. Count the Number of Comments
 
@@ -57,6 +68,11 @@ comments_count = FOREACH comments_all GENERATE
 COUNT(comments);
 DUMP comments_count;
 ```
+
+![image](https://user-images.githubusercontent.com/63589909/88452787-401c8200-ce7f-11ea-835f-9e6466a89161.png)
+
+![image](https://user-images.githubusercontent.com/63589909/88452808-62160480-ce7f-11ea-9853-a1876eaec0ea.png)
+
 4. Split the Dataset
 
 * Note: Our end goal is find visitors to the White House who are also members of Congress. 
@@ -73,13 +89,25 @@ grunt> SPLIT visits INTO congress IF($25 MATCHES'.* CONGRESS .*'), not_congress 
 
 * Store the congress relation into a folder named ‘congress’. ```grunt> STORE congress INTO 'congress';```
 
+![image](https://user-images.githubusercontent.com/63589909/88452852-aacdbd80-ce7f-11ea-814c-2f0defb93724.png)
+
+![image](https://user-images.githubusercontent.com/63589909/88452868-cc2ea980-ce7f-11ea-8db9-f83c23bf88aa.png)
+
 * Similarly, STORE the not_congress relation in a folder named ‘not_congress’. ```grunt> STORE not_congress INTO 'not_congress';```
+
+![image](https://user-images.githubusercontent.com/63589909/88452877-e2d50080-ce7f-11ea-86e9-21a1b016b986.png)
+
+![image](https://user-images.githubusercontent.com/63589909/88452893-ff713880-ce7f-11ea-83a6-82764c226ba1.png)
 
 * View the output folders using ls. The file sizes should be equivalent to the following:
 ```grunt> ls congress```
 
 * View one of the output files in congress and make sure the string “CONGRESS” appears in the comment field:
 ```grunt> cat congress/part-m-00000```
+
+![image](https://user-images.githubusercontent.com/63589909/88452898-20d22480-ce80-11ea-91c4-97883cbbf75c.png)
+
+![image](https://user-images.githubusercontent.com/63589909/88452919-4bbc7880-ce80-11ea-9a95-652e37d503c2.png)
 
 5. Count the Results
 
@@ -94,10 +122,12 @@ remaining records in the ‘not_congress’ folder.
 original, raw format.
 ```
 grunt> congress_grp = GROUP congress ALL;
-grunt> congress_count = FOREACH congress_grp GENERATE
-COUNT(congress);
+grunt> congress_count = FOREACH congress_grp GENERATE COUNT(congress);
 grunt> DUMP congress_count;
 ```
+![image](https://user-images.githubusercontent.com/63589909/88452934-65f65680-ce80-11ea-863d-07f7d9ed72f2.png)
+
+![image](https://user-images.githubusercontent.com/63589909/88452961-8de5ba00-ce80-11ea-9328-e1a24829f486.png)
 
 * Result
 You have just split ‘visits.txt’ into two datasets, and you have also discovered that 102 visitors
