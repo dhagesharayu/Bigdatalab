@@ -26,3 +26,5 @@
 ## [Analyzing Stock Market Data using Quantiles](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig6.md)
 
 ## [Splitting a Dataset using Pig](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig7.md)
+
+## [Understanding Hive Tables](https://github.com/dhagesharayu/Bigdatalab/blob/master/hive1.md)
