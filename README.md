@@ -5,7 +5,7 @@
 
 ## [EMR SETup with hadoop](https://github.com/dhagesharayu/Bigdatalab/blob/master/EMRSetup%20with%20Hadoop.md)
 
-## [Using hadoop commands](https://github.com/dhagesharayu/Bigdatalab/blob/master/Day1.md)
+## [Using hadoop commands](https://github.com/dhagesharayu/Bigdatalab/blob/master/hdfs/Lab1.md)
 
 ## [Import Export Data from HDFS to RDMS Using Sqoop](https://github.com/dhagesharayu/Bigdatalab/blob/master/lab2.md)
 
@@ -13,18 +13,22 @@
 
 ## [sqoop import export commands using s3](https://github.com/dhagesharayu/Bigdatalab/blob/master/s3sqoop.md)
 
-## [Getting Started with Pig](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig1.md)
+## [Getting Started with Pig](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig/pig1.md)
 
-## [Exploring Data with Pig](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig2.md)
+## [Exploring Data with Pig](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig/pig2.md)
 
-## [Joining Datasets with Pig](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig3.md)
+## [Joining Datasets with Pig](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig/pig3.md)
 
-## [Preparing Data for Hive](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig4.md)
+## [Preparing Data for Hive](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig/pig4.md)
 
-## [Analyzing Clickstream Data using pig](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig5.md)
+## [Analyzing Clickstream Data using pig](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig/pig5.md)
 
-## [Analyzing Stock Market Data using Quantiles](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig6.md)
+## [Analyzing Stock Market Data using Quantiles](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig/pig6.md)
 
-## [Splitting a Dataset using Pig](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig7.md)
+## [Splitting a Dataset using Pig](https://github.com/dhagesharayu/Bigdatalab/blob/master/pig/pig7.md)
 
-## [Understanding Hive Tables](https://github.com/dhagesharayu/Bigdatalab/blob/master/hive1.md)
+## [Understanding Hive Tables](https://github.com/dhagesharayu/Bigdatalab/blob/master/Hive/hive1.md)
+
+## [Analyzing Big Data with Hive](https://github.com/dhagesharayu/Bigdatalab/blob/master/Hive/hive2.md)
+## [Joining Datasets in Hive](https://github.com/dhagesharayu/Bigdatalab/blob/master/Hive/hive3.md)
+## [Understanding Partitions and Skew](https://github.com/dhagesharayu/Bigdatalab/blob/master/Hive/hive5.md)
