@@ -19,3 +19,7 @@
 ![image](https://user-images.githubusercontent.com/63589909/88703576-7df10300-d12a-11ea-9172-e822403195fe.png)
 
 ![image](https://user-images.githubusercontent.com/63589909/88703590-82b5b700-d12a-11ea-86cf-902cad42a35f.png)
+
+* [More on rank](https://www.sqlservertutorial.net/sql-server-window-functions/sql-server-rank-function/)
+
+* [Similar](https://www.sqlshack.com/overview-of-sql-rank-functions/)
