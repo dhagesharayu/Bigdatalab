@@ -78,59 +78,65 @@ of July.
 
 * Run the getschema command to get the schema in a file named mbox.avsc:
 
+![image](https://user-images.githubusercontent.com/63589909/88894445-8437ca00-d265-11ea-9df6-4d8fe535d19e.png)
 
 * Put the Avro schema file into in HDFS:
 
+![image](https://user-images.githubusercontent.com/63589909/88894003-d75d4d00-d264-11ea-8b6c-3ae783fb356a.png)
+
 * Use more to view the contents of the create_email_table.hive ;:script in your labs/Lab7.5 folder. 
 
+![image](https://user-images.githubusercontent.com/63589909/88894576-b1847800-d265-11ea-935c-7d3c3d2704bb.png)
 
-* Verify the avro.schema.url property is correct.
+* Verify the avro.schema.url property is correct and make changes.
 
-
+![image](https://user-images.githubusercontent.com/63589909/88894837-2e175680-d266-11ea-9bf4-92751bc3b518.png)
 
 * Run the script to create the hive_user_email table:
 
+![image](https://user-images.githubusercontent.com/63589909/88895657-78003c80-d266-11ea-8d2a-beae1b1386d3.png)
 
+* Copy mbox7.avro into the table location i.e hive warehouse
 
-* Copy mbox7.avro into the table location
-
-
+![image](https://user-images.githubusercontent.com/63589909/88895825-9d8d4600-d266-11ea-8a97-c00a8bff25ec.png)
 
 * Start the Hive shell and verify the table has data in it:
 
+![image](https://user-images.githubusercontent.com/63589909/88895891-b4339d00-d266-11ea-89f3-9437f1c64eb2.png)
 
 5. Compute a Bigram
 
 * Use the Hive ngrams function to create a bigram of the words in mbox7.avro:
-
-
-
 * The output will be kind of a jumbled mess:
 
+![image](https://user-images.githubusercontent.com/63589909/88896175-17253400-d267-11ea-8aea-b58972dce84e.png)
 
 * To clean this up, use the Hive explode function to display the output in a more
 readable format:
-
-
-
 * You should see a nice, readable list of 10 bigrams:
 
+![image](https://user-images.githubusercontent.com/63589909/88896265-3e7c0100-d267-11ea-85a2-de4f344db606.png)
+
+![image](https://user-images.githubusercontent.com/63589909/88896443-784d0780-d267-11ea-81e6-9ea6cba88b85.png)
 
 * Typically when working with word comparison we ignore case. 
 
 * Run the query
 again, but this time add the Hive lower function and compute 20 bigrams:
-
-
 * The output should look like the following:
+
+![image](https://user-images.githubusercontent.com/63589909/88896527-9450a900-d267-11ea-922a-b20b8cf5c28b.png)
 
 6. Compute a Context ngram
 
 * From the Hive shell, run the following query, which uses the context_ngrams
 function to find the top 20 terms that follow the word “error”:
 
-
 * The output should look like the following:
+
+![image](https://user-images.githubusercontent.com/63589909/88896651-c5c97480-d267-11ea-9ba3-6e05aedea860.png)
+
+![image](https://user-images.githubusercontent.com/63589909/88896804-fe694e00-d267-11ea-8060-67f2b3fd9130.png)
 
 * What is the most likely word to follow “error” in these emails?
 * Answer: “in”
@@ -138,7 +144,11 @@ function to find the top 20 terms that follow the word “error”:
 * Run a Hive query that finds the top 20 results for words in mbox7.avro that follow
 the phrase “error in.”
 
+![image](https://user-images.githubusercontent.com/63589909/88896930-2658b180-d268-11ea-81fc-c243ed8843b3.png)
+
 * Result
 You have written several Hive queries that computed bigrams based on the data in the
 mbox7.avro file. You should also be familiar with working with Avro files, a popular file format in
 Hadoop.
+
+### [ngrams Documentation](https://cwiki.apache.org/confluence/display/Hive/StatisticsAndDataMining)
